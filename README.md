@@ -3,6 +3,10 @@
 Simulation and optimization of spacecraft **attitude control** to achieve and maintain **Nadir pointing** during an entire orbital period.
 
 The project combines **orbital mechanics, spacecraft dynamics, control theory and nonlinear optimization**, implemented using **MATLAB and Simulink**.
+<img width="700" height="525" alt="angle_PID" src="https://github.com/user-attachments/assets/f3038376-9f78-483b-aede-f29be43bcce0" />
+<img width="742" height="716" alt="frames2" src="https://github.com/user-attachments/assets/3800d418-8f4f-4f13-bc6f-1c65ba855899" />
+<img width="1500" height="502" alt="PID_flow" src="https://github.com/user-attachments/assets/9c753bad-53d2-4c18-a1f5-8c2c2441937a" />
+<img width="850" height="736" alt="Reference-frames-ECI-body-LVLH-Target" src="https://github.com/user-attachments/assets/674ef203-c246-4900-aa4b-9d4b5a04e3e8" />
 
 ---
 
