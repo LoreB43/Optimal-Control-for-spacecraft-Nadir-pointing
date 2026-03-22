@@ -50,8 +50,7 @@ C programming language being a compiled language rather than an interpreted one 
 
 The **SQP algorithm** showed the best performance in terms of convergence speed, computational efficiency, solution quality.
 
-- IMMAGINI CONVERGENZA
-<img src="https://github.com/user-attachments/assets/9c753bad-53d2-4c18-a1f5-8c2c2441937a" width="50%"/>
+<img src="https://github.com/user-attachments/assets/14e8f7bd-a77e-41d5-8f4a-d110264a097c" width="50%"/>
 
 ---
 
@@ -66,12 +65,16 @@ The optimized controller achieves:
 
 This demonstrates the effectiveness of **parameterized optimal control using PID tuning**.
 
-<img src="https://github.com/user-attachments/assets/f3038376-9f78-483b-aede-f29be43bcce0" width="20%"/>
+Here are the pointing error before and after the controller implementation:
+
+<img src="https://github.com/user-attachments/assets/41e6fa6e-5d51-4df5-9333-a4ef942598f0" width="30%" />
+
+<img src="https://github.com/user-attachments/assets/f3038376-9f78-483b-aede-f29be43bcce0" width="30%"/>
 
 ---
 
 ## Future Work
-Controllo per inizializzazioni piu ampie e messa in orbita del satellite
+Design the controller to handle larger initial attitude errors and high angular velocities. Implement a Detumbling Mode (B-Cross or equivalent) to stabilize the satellite from its high-energy post-separation state, reducing kinetic energy before transitioning to the fine Nadir-pointing mode.
 
 ---
 
