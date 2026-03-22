@@ -1,4 +1,6 @@
 # Spacecraft Nadir Pointing – Optimal Control
+Development of a simulation for satellite kinematics and dynamics using MATLAB/Simulink. Design and implementation of a Model-Based Optimal Controller to maintain a stable Nadir-pointing orientation (keeping the satellite's payload facing Earth).
+## Project Objectives
 
 Simulation and optimization of spacecraft **attitude control** to achieve and maintain **Nadir pointing** during an entire orbital period.
 
