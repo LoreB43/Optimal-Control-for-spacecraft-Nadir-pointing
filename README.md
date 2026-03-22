@@ -4,6 +4,8 @@ Development of a simulation for satellite kinematics and dynamics using MATLAB/S
 <img src="https://github.com/user-attachments/assets/5855d8c0-a71d-4ffe-8860-229c7a5a1de8" width="35%"/>
 <img src="https://github.com/user-attachments/assets/674ef203-c246-4900-aa4b-9d4b5a04e3e8" width="30%"/>
 
+For full details look at the report: https://github.com/LoreB43/Optimal-Control-for-spacecraft-Nadir-pointing/blob/main/Report.pdf
+
 ---
 
 ## Project Objectives
@@ -27,68 +29,40 @@ The main control strategy involves the use of an optimal model-based controller 
 ---
 
 ## Problems
-A standard MPC strategy directly on the three rotation wheels.
-- Very large number of decision variables  
+A standard MPC strategy directly on the three rotation wheels leads to different problems:
+- Very large number of decision variables (three torques times the number of istants in the finite horizon of the prediction)  
 - High computational cost  
 - Not feasible for full orbital simulations
-- Problem in real-time implementation
+- Problem in real-time implementation due to complex model and long time to find an optimal solution
 
 ---
 
 ## Solutions
+To solve this problem, many solutions are evaluated:
+- To reduce complexity, the control law is parameterized using a **PID controller** to be able to keep the decision varible indipendent respect to the horizon of the model prediction
+- Compile in C some code portions
+- Evaluate different algorithm to find solutions effectively based on the complexity of the model. We compared SQP (Sequential Quadratic Programming), Interior Point, Active Set
 
-To reduce complexity, the control law is parameterized using a **PID controller**.
+This reduces the optimization problem to **only three decision variables** using the PID parametrization.  
+<img src="https://github.com/user-attachments/assets/9c753bad-53d2-4c18-a1f5-8c2c2441937a" width="50%"/>
 
-Control law:
+C programming language being a compiled language rather than an interpreted one is faster 
 
-```
-M = -kp*q_error - kd*ω_error - ki ∫q_error dt
-```
+The **SQP algorithm** showed the best performance in terms of convergence speed, computational efficiency, solution quality.
 
-Instead of optimizing torque directly, the solver optimizes:
-
-```
-PID = [kp, ki, kd]
-```
-
-This reduces the optimization problem to **only three decision variables**.
-
-The parameters are tuned using **nonlinear constrained optimization**.
-
+- IMMAGINI CONVERGENZA
 <img src="https://github.com/user-attachments/assets/9c753bad-53d2-4c18-a1f5-8c2c2441937a" width="50%"/>
 
 ---
 
-## Performance Metrics and results
-Different algorithms were tested:
-
-- SQP (Sequential Quadratic Programming)
-- Interior Point
-- Active Set
-
-
-
-- Iterations to convergence  
-- Function evaluations  
-- Computational time  
-- Final cost value  
-
-The **SQP algorithm** showed the best performance in terms of:
-
-- convergence speed  
-- computational efficiency  
-- solution quality  
+## Results
 
 The optimized controller achieves:
 
-- rapid convergence to the correct orientation  
-- stable nadir pointing for the entire orbit  
-- minimal control torque after alignment  
+- rapid convergence to the correct orientation. Slew maneuver completed in **< 100 seconds** 
+- stable nadir pointing for the entire orbit. Pointing error converges to **zero**
+- minimal control torque after alignment, Control torque approaches **zero after stabilization**  
 - compliance with actuator limits  
-
-- Slew maneuver completed in **< 100 seconds**
-- Pointing error converges to **zero**
-- Control torque approaches **zero after stabilization**
 
 This demonstrates the effectiveness of **parameterized optimal control using PID tuning**.
 
@@ -102,3 +76,6 @@ Controllo per inizializzazioni piu ampie e messa in orbita del satellite
 ---
 
 ## How to run
+
+- Requires Matlab/Simulink at least 2023 version
+- Run main.m to obtain results (change dynamics_2024 to dynamics_2023, which constains the model dynamics computation on which model prediction is based, according to your matlab version)
