@@ -4,7 +4,8 @@ Development of a simulation for satellite kinematics and dynamics using MATLAB/S
 <img src="https://github.com/user-attachments/assets/5855d8c0-a71d-4ffe-8860-229c7a5a1de8" width="35%"/>
 <img src="https://github.com/user-attachments/assets/674ef203-c246-4900-aa4b-9d4b5a04e3e8" width="30%"/>
 
-For full details look at the report: https://github.com/LoreB43/Optimal-Control-for-spacecraft-Nadir-pointing/blob/main/Report.pdf
+
+[**📄 Read the Full Technical Report**](https://github.com/LoreB43/Optimal-Control-for-spacecraft-Nadir-pointing/blob/main/Report.pdf)
 
 ---
 
